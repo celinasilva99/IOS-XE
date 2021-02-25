@@ -1,9 +1,8 @@
-
 Building configuration...
 
-Current configuration : 4206 bytes
+Current configuration : 4846 bytes
 !
-! Last configuration change at 19:36:05 UTC Wed Feb 24 2021 by cisco
+! Last configuration change at 22:41:28 UTC Thu Feb 25 2021 by developer
 !
 version 16.9
 service timestamps debug datetime msec
@@ -97,7 +96,7 @@ crypto pki certificate chain TP-self-signed-65385644
 !
 !
 !
-license udi pid CSR1000V sn 9VTV0A1CQPW
+license udi pid CSR1000V sn 907LJY00QMO
 license boot level ax
 no license smart enable
 diagnostic bootup level minimal
@@ -135,6 +134,33 @@ redundancy
 ! 
 ! 
 !
+!
+interface Loopback10
+ description Pod Number 10
+ ip address 10.111.10.1 255.255.255.255
+!
+interface Loopback20
+ ip address 10.111.20.1 255.255.255.255
+!
+interface Loopback120
+ description Pod Number 20
+ ip address 10.111.20.2 255.255.255.255
+!
+interface Loopback1120
+ description Pod Number 1120
+ no ip address
+!
+interface Loopback1220
+ description Pod Number 1220
+ no ip address
+!
+interface Loopback1320
+ description Pod Number 1320
+ no ip address
+!
+interface Loopback1420
+ description Pod Number 1420
+ no ip address
 !
 interface GigabitEthernet1
  description MANAGEMENT INTERFACE - DON'T TOUCH ME
@@ -196,6 +222,11 @@ line vty 0 4
  login local
  transport input ssh
 !
+ntp server 10.11.10.65
+ntp server 10.12.10.65
+ntp server 10.13.10.65
+ntp server 10.14.10.65
+ntp server 10.111.20.66
 !
 !
 !
